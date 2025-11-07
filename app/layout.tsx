@@ -2,9 +2,10 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import LayoutClient from './LayoutClient';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://votre-domaine.com';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://7z2.vercel.app';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: '7Z2 - Trouve le 722 ! | Jeu de Rapidité et Observation',
     template: '%s | 7Z2',
