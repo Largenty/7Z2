@@ -20,11 +20,13 @@ Dans **Vercel Dashboard** → **Settings** → **Environment Variables**, ajoute
 NEXT_PUBLIC_SUPABASE_URL=https://drmdidfzeogobrmkippr.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=votre-clé-anon-supabase
 NEXT_PUBLIC_SITE_URL=https://votre-projet.vercel.app
+NEXT_PUBLIC_USE_EDGE_FUNCTION=false
 ```
 
 **Important** :
 - Cocher **Production**, **Preview**, et **Development**
 - Remplacer les valeurs par tes vraies clés Supabase
+- ⚠️ Laisser `NEXT_PUBLIC_USE_EDGE_FUNCTION=false` pour l'instant (on l'activera après avoir déployé l'Edge Function)
 
 ### Étape 3 : Mettre à Jour les Fichiers SEO
 
@@ -75,6 +77,19 @@ Tu devrais voir :
 │ submit-score │ ACTIVE │ 1        │
 └──────────────┴────────┴──────────┘
 ```
+
+### Activer l'Edge Function en Production
+
+Une fois l'Edge Function déployée et testée :
+
+1. **Vercel Dashboard** → **Settings** → **Environment Variables**
+2. Modifier `NEXT_PUBLIC_USE_EDGE_FUNCTION` :
+   ```
+   NEXT_PUBLIC_USE_EDGE_FUNCTION=true
+   ```
+3. **Redéployer** (Vercel le fait automatiquement ou manuellement via "Redeploy")
+
+✅ Les scores seront maintenant validés côté serveur avec toutes les protections de sécurité !
 
 ---
 
