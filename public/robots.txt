@@ -1,0 +1,15 @@
+# robots.txt pour 7Z2
+# Permet à tous les robots d'indexer tout le site
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://votre-domaine.com/sitemap.xml
+
+# Règles spécifiques pour empêcher l'indexation de certains chemins (si nécessaire)
+# Disallow: /api/
+# Disallow: /_next/
+
+# Crawl-delay pour éviter la surcharge (optionnel)
+# Crawl-delay: 1

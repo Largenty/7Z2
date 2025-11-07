@@ -1,0 +1,27 @@
+{
+  "name": "7Z2 - Trouve le 722",
+  "short_name": "7Z2",
+  "description": "Un jeu de rapidité et d'observation. Trouve la case 722 parmi des centaines de 7Z2 le plus vite possible !",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["games", "entertainment"],
+  "lang": "fr",
+  "dir": "ltr"
+}

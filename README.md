@@ -83,8 +83,10 @@ Voir **[SECURITY.md](./SECURITY.md)** pour plus de détails.
 
 - **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Guide de déploiement complet (Edge Functions, Vercel, etc.)
 - **[SECURITY.md](./SECURITY.md)** - Documentation de sécurité et protections
+- **[SEO.md](./SEO.md)** - Guide d'optimisation SEO et référencement
 - **[supabase.sql](./supabase.sql)** - Schéma complet de la base de données
 - **[.env.example](./.env.example)** - Template des variables d'environnement
+- **[public/LOGO_INSTRUCTIONS.md](./public/LOGO_INSTRUCTIONS.md)** - Instructions pour créer les assets visuels
 
 ## 📊 Schéma Base de Données
 
