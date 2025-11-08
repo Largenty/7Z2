@@ -25,16 +25,41 @@ export default function PlayPageClient() {
   const [clicksCount, setClicksCount] = useState(0);
   const [specialCell, setSpecialCell] = useState<CellPosition | null>(null);
   const [showModal, setShowModal] = useState(false);
+  const [isResetting, setIsResetting] = useState(false);
 
   const handleStart = () => {
-    const newSpecialCell = generateRandomSpecialPosition(GRID_ROWS, GRID_COLS);
-    setSpecialCell(newSpecialCell);
-    setClicksCount(0);
-    setEndTime(null);
-    setDurationMs(0);
-    const now = performance.now();
-    setStartTime(now);
-    setGameStatus('playing');
+    // Si c'est un restart (game en cours), déclencher l'animation
+    if (gameStatus === 'playing' || gameStatus === 'finished') {
+      setIsResetting(true);
+
+      // Attendre la fin de l'animation de disparition (300ms)
+      setTimeout(() => {
+        // Réinitialiser le jeu
+        const newSpecialCell = generateRandomSpecialPosition(GRID_ROWS, GRID_COLS);
+        setSpecialCell(newSpecialCell);
+        setClicksCount(0);
+        setEndTime(null);
+        setDurationMs(0);
+        const now = performance.now();
+        setStartTime(now);
+        setGameStatus('playing');
+
+        // Déclencher l'animation d'apparition
+        setTimeout(() => {
+          setIsResetting(false);
+        }, 50);
+      }, 300);
+    } else {
+      // Premier start, pas d'animation
+      const newSpecialCell = generateRandomSpecialPosition(GRID_ROWS, GRID_COLS);
+      setSpecialCell(newSpecialCell);
+      setClicksCount(0);
+      setEndTime(null);
+      setDurationMs(0);
+      const now = performance.now();
+      setStartTime(now);
+      setGameStatus('playing');
+    }
   };
 
   const handleCellClick = (row: number, col: number) => {
@@ -113,13 +138,21 @@ export default function PlayPageClient() {
             </div>
           </div>
 
-          <GameGrid
-            rows={GRID_ROWS}
-            cols={GRID_COLS}
-            specialCell={specialCell}
-            onCellClick={handleCellClick}
-            disabled={gameStatus === 'finished'}
-          />
+          <div
+            className={`transition-all duration-300 ${
+              isResetting
+                ? 'opacity-0 scale-95'
+                : 'opacity-100 scale-100'
+            }`}
+          >
+            <GameGrid
+              rows={GRID_ROWS}
+              cols={GRID_COLS}
+              specialCell={specialCell}
+              onCellClick={handleCellClick}
+              disabled={gameStatus === 'finished'}
+            />
+          </div>
         </>
       ) : null}
 
